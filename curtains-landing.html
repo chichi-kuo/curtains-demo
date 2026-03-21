@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>暮光窗藝｜質感窗簾設計</title>
+  <style>
+    :root {
+      --bg: #f8f4ef;
+      --text: #2f2a26;
+      --muted: #6b625b;
+      --primary: #8c6a4a;
+      --primary-dark: #6e5239;
+      --card: rgba(255,255,255,0.78);
+      --white: #ffffff;
+      --shadow: 0 18px 40px rgba(72, 52, 35, 0.15);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f6f1eb 0%, #efe6db 100%);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(36, 28, 22, 0.35), rgba(36, 28, 22, 0.45)),
+        url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80') center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .hero-box {
+      width: min(1120px, 100%);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      padding: 42px;
+      box-shadow: var(--shadow);
+      color: var(--white);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      line-height: 1.1;
+    }
+
+    .hero p {
+      margin: 0 0 24px;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.92);
+      max-width: 44rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: #f4d8b2;
+      color: #3d2a19;
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); background: #f0c892; }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.5);
+      color: var(--white);
+    }
+
+    .btn-secondary:hover { background: rgba(255,255,255,0.12); }
+
+    .card {
+      background: var(--card);
+      color: var(--text);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 { margin-top: 0; font-size: 1.5rem; }
+
+    .mini-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .mini-list li {
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 16px;
+      color: var(--muted);
+    }
+
+    section {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 88px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-title h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+    }
+
+    .section-title p {
+      margin: 0 auto;
+      max-width: 680px;
+      color: var(--muted);
+    }
+
+    .features,
+    .gallery,
+    .steps {
+      display: grid;
+      gap: 22px;
+    }
+
+    .features {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .feature {
+      background: rgba(255,255,255,0.8);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 10px 24px rgba(67, 47, 31, 0.08);
+    }
+
+    .feature .icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: #f3e4d4;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery-item {
+      min-height: 320px;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .gallery-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.45));
+    }
+
+    .gallery-item span {
+      position: absolute;
+      left: 20px;
+      bottom: 18px;
+      color: #fff;
+      font-weight: 700;
+      z-index: 1;
+    }
+
+    .steps {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .step {
+      background: #fff;
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 10px 24px rgba(67, 47, 31, 0.08);
+    }
+
+    .step strong {
+      display: inline-flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #f1dfca;
+      margin-bottom: 12px;
+      color: var(--primary-dark);
+    }
+
+    .cta {
+      padding-bottom: 100px;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #7b5d42, #a27c57);
+      color: #fff;
+      border-radius: 28px;
+      padding: 42px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 0 20px 40px;
+    }
+
+    @media (max-width: 960px) {
+      .hero-box,
+      .features,
+      .gallery,
+      .steps,
+      .cta-box {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .cta-box {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .glass, .card, .feature, .step, .cta-box { padding: 24px; }
+      .hero { padding: 20px 14px; }
+      section { width: min(100% - 20px, 1120px); padding: 64px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-box">
+      <div class="glass">
+        <div class="badge">CURTAIN DESIGN · 一頁式形象網站</div>
+        <h1>讓每一道光，落在剛剛好的柔軟裡</h1>
+        <p>
+          暮光窗藝專注於訂製窗簾、紗簾、遮光簾與居家軟裝搭配，
+          用材質、色彩與光線，替空間做出最自然的表情。
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact">立即預約丈量</a>
+          <a class="btn btn-secondary" href="#products">看款式靈感</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>為什麼大家喜歡我們的窗簾？</h3>
+        <p>從客廳到臥室、從北歐簡約到現代輕奢，我們提供耐看、耐用、耐住的窗藝提案。</p>
+        <ul class="mini-list">
+          <li>✔ 免費到府丈量與安裝建議</li>
+          <li>✔ 上百款布料與遮光等級可選</li>
+          <li>✔ 可依空間風格客製配色</li>
+          <li>✔ 適合居家、商空、民宿與辦公室</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <section id="features">
+    <div class="section-title">
+      <h2>窗簾，不只是遮光</h2>
+      <p>它也可以是空間的框景、隱私的保護、溫度的調節，還有每天回家最先看到的質感細節。</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="icon">🪟</div>
+        <h3>量身訂製</h3>
+        <p>依據窗型、採光與使用習慣規劃，讓尺寸、垂墜與開闔都更順手。</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🌤️</div>
+        <h3>光線控制</h3>
+        <p>紗簾柔光、遮光簾隔熱、雙層搭配更靈活，白天夜晚都舒服。</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🎨</div>
+        <h3>風格搭配</h3>
+        <p>從奶茶色、燕麥白到深灰咖啡，讓窗簾成為空間最耐看的背景。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="section-title">
+      <h2>人氣窗簾款式</h2>
+      <p>以下示意版型適合拿來做品牌展示、形象頁、產品導覽或接單頁面。</p>
+    </div>
+    <div class="gallery">
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80')">
+        <span>柔紗窗簾｜透光不透視</span>
+      </div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80')">
+        <span>遮光布簾｜睡眠更沉穩</span>
+      </div>
+      <div class="gallery-item" style="background-image:url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80')">
+        <span>雙層搭配｜機能與美感兼具</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="section-title">
+      <h2>服務流程很簡單</h2>
+      <p>一頁式網站通常最適合把流程講清楚，讓客戶看完就想直接聯絡。</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <strong>1</strong>
+        <h3>線上諮詢</h3>
+        <p>提供空間照片、喜歡的風格與需求，我們先幫你抓方向。</p>
+      </div>
+      <div class="step">
+        <strong>2</strong>
+        <h3>到府丈量</h3>
+        <p>確認尺寸、採光與軌道需求，避免成品比例失衡。</p>
+      </div>
+      <div class="step">
+        <strong>3</strong>
+        <h3>選布打樣</h3>
+        <p>依照色系、質地與預算做推薦，兼顧實用與整體美感。</p>
+      </div>
+      <div class="step">
+        <strong>4</strong>
+        <h3>安裝完成</h3>
+        <p>交給專業師傅收邊安裝，讓窗景一次到位。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="cta-box">
+      <div>
+        <h2>想替空間換一種光？</h2>
+        <p>現在就預約免費丈量，讓你的客廳、臥室或工作室，有更舒服的窗景表情。</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="tel:0912345678">立即來電</a>
+        <a class="btn btn-secondary" href="mailto:hello@curtain-demo.tw">Email 諮詢</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 暮光窗藝 Curtain Studio｜此頁為窗簾主題一頁式網頁示範
+  </footer>
+</body>
+</html>

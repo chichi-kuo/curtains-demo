@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>安裝案例（完工實拍）｜布拉格窗簾</title>
+  <style>
+    :root {
+      --bg: #f8f4ef;
+      --text: #2f2a26;
+      --muted: #6b625b;
+      --primary: #8c6a4a;
+      --primary-dark: #6e5239;
+      --white: #ffffff;
+      --shadow: 0 18px 40px rgba(72, 52, 35, 0.15);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f6f1eb 0%, #efe6db 100%);
+      line-height: 1.7;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .hero {
+      background:
+        linear-gradient(rgba(36, 28, 22, 0.46), rgba(36, 28, 22, 0.5)),
+        url('images/cases/real5.jpg') center/cover;
+      color: var(--white);
+      padding: 96px 20px 88px;
+    }
+
+    .hero-inner,
+    .section,
+    .footer-inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.18);
+      letter-spacing: 0.08em;
+      font-size: 14px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.1;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 760px;
+      color: rgba(255,255,255,0.92);
+      font-size: 1.05rem;
+    }
+
+    .actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: #f4d8b2;
+      color: #3d2a19;
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); background: #f0c892; }
+
+    .btn-secondary {
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.55);
+    }
+
+    .btn-secondary:hover { background: rgba(255,255,255,0.12); }
+
+    .section {
+      padding: 76px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .section-title h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+    }
+
+    .section-title p {
+      margin: 0 auto;
+      max-width: 760px;
+      color: var(--muted);
+    }
+
+    .intro-card {
+      background: rgba(255,255,255,0.82);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      color: var(--muted);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .case-card {
+      background: rgba(255,255,255,0.88);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .case-card img {
+      display: block;
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      background: #ddd3c8;
+    }
+
+    .case-card .copy {
+      padding: 20px 20px 22px;
+    }
+
+    .case-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+    }
+
+    .case-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #7b5d42, #a27c57);
+      color: #fff;
+      border-radius: 28px;
+      padding: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      padding: 0 20px 40px;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cta {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 76px 16px 70px; }
+      .section, .footer-inner { width: min(100% - 20px, 1120px); }
+      .gallery { grid-template-columns: 1fr; }
+      .case-card img { height: 280px; }
+      .intro-card, .cta { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">完工實拍案例</div>
+      <h1>安裝案例（完工實拍）</h1>
+      <p>
+        精選布拉格窗簾實際安裝完成照片，讓你更直觀看到不同空間中的窗簾呈現效果，
+        包含採光、垂墜感、色調搭配與整體氛圍。
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="curtains-landing.html">回主頁</a>
+        <a class="btn btn-secondary" href="curtains-landing.html#contact">預約免費丈量</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="section-title">
+        <h2>實拍展示</h2>
+        <p>以下為完工後的現場照片，可作為窗型、布色與安裝效果的參考。後續若有更多案例，也可以持續擴充到這一頁。</p>
+      </div>
+
+      <div class="intro-card">
+        每個空間的採光條件、牆面配色與使用需求都不同，實際完工照能更真實地幫助客戶想像安裝後的效果。
+        若你已經有喜歡的風格，也可以直接傳照片或需求給窗簾規劃師協助搭配。
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="gallery">
+        <article class="case-card">
+          <img src="images/cases/real1.jpg" alt="安裝案例 1 完工實拍" />
+          <div class="copy">
+            <h3>案例 01</h3>
+            <p>簡潔俐落的窗面配置，讓空間整體更乾淨、明亮。</p>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <img src="images/cases/real2.jpg" alt="安裝案例 2 完工實拍" />
+          <div class="copy">
+            <h3>案例 02</h3>
+            <p>兼顧遮光與美觀，適合重視隱私與舒適度的生活空間。</p>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <img src="images/cases/real3.jpg" alt="安裝案例 3 完工實拍" />
+          <div class="copy">
+            <h3>案例 03</h3>
+            <p>透過材質與色彩搭配，讓窗簾自然融入整體室內風格。</p>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <img src="images/cases/real4.jpg" alt="安裝案例 4 完工實拍" />
+          <div class="copy">
+            <h3>案例 04</h3>
+            <p>依照窗型與採光條件規劃，兼顧功能與視覺比例。</p>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <img src="images/cases/real5.jpg" alt="安裝案例 5 完工實拍" />
+          <div class="copy">
+            <h3>案例 05</h3>
+            <p>提升空間層次感，營造更完整的居家氛圍。</p>
+          </div>
+        </article>
+
+        <article class="case-card">
+          <img src="images/cases/real6.jpg" alt="安裝案例 6 完工實拍" />
+          <div class="copy">
+            <h3>案例 06</h3>
+            <p>完工後線條整齊、收邊乾淨，呈現俐落又耐看的效果。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="cta">
+        <div>
+          <h2 style="margin:0 0 8px;">想看你家適合哪一種窗簾配置？</h2>
+          <p style="margin:0; color:rgba(255,255,255,0.9);">歡迎直接來電或加入 LINE，預約免費到府丈量與窗簾規劃。</p>
+        </div>
+        <div class="actions" style="margin-top:0;">
+          <a class="btn btn-primary" href="tel:0905331959">立即來電</a>
+          <a class="btn btn-secondary" href="https://line.me/ti/p/~0905331959">加入 LINE</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      © 2026 布拉格窗簾｜郭湘琦 窗簾規劃師｜Tel: 0905-331-959｜LINE ID: 0905331959
+    </div>
+  </footer>
+</body>
+</html>

@@ -3,14 +3,514 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>導向中...</title>
-  <meta http-equiv="refresh" content="0; url=curtains-landing.html" />
-  <script>
-    window.location.replace('curtains-landing.html');
-  </script>
+  <title>布拉格窗簾｜窗簾規劃與到府丈量</title>
+  <meta name="description" content="布拉格窗簾提供防焰、隔熱、遮光窗簾與羅馬簾、拉門、捲簾、調光簾、各式百頁規劃，免費到府丈量估價。" />
+  <link rel="canonical" href="https://chichi-kuo.github.io/curtains-demo/" />
+  <style>
+    :root {
+      --bg: #f8f4ef;
+      --text: #2f2a26;
+      --muted: #6b625b;
+      --primary: #8c6a4a;
+      --primary-dark: #6e5239;
+      --card: rgba(255,255,255,0.78);
+      --white: #ffffff;
+      --shadow: 0 18px 40px rgba(72, 52, 35, 0.15);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f6f1eb 0%, #efe6db 100%);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(36, 28, 22, 0.35), rgba(36, 28, 22, 0.45)),
+        url('images/image.png') center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .hero-box {
+      width: min(1120px, 100%);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius);
+      padding: 42px;
+      box-shadow: var(--shadow);
+      color: var(--white);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      line-height: 1.1;
+    }
+
+    .hero p {
+      margin: 0 0 24px;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.92);
+      max-width: 44rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: #f4d8b2;
+      color: #3d2a19;
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); background: #f0c892; }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.5);
+      color: var(--white);
+    }
+
+    .btn-secondary:hover { background: rgba(255,255,255,0.12); }
+
+    .btn-line {
+      background: #06c755;
+      color: #ffffff;
+      border: 2px solid #06c755;
+      box-shadow: 0 10px 24px rgba(6, 199, 85, 0.28);
+    }
+
+    .btn-line:hover {
+      transform: translateY(-2px);
+      background: #05b84e;
+      border-color: #05b84e;
+      box-shadow: 0 14px 28px rgba(6, 199, 85, 0.34);
+    }
+
+    .card {
+      background: var(--card);
+      color: var(--text);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 { margin-top: 0; font-size: 1.5rem; }
+
+    .mini-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .mini-list li {
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 16px;
+      color: var(--muted);
+    }
+
+    section {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 88px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-title h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+    }
+
+    .section-title p {
+      margin: 0 auto;
+      max-width: 680px;
+      color: var(--muted);
+    }
+
+    .features,
+    .gallery,
+    .steps {
+      display: grid;
+      gap: 22px;
+    }
+
+    .features {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .feature {
+      background: rgba(255,255,255,0.8);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 10px 24px rgba(67, 47, 31, 0.08);
+    }
+
+    .feature .icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: #f3e4d4;
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery-item {
+      min-height: 320px;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .gallery-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.45));
+    }
+
+    .gallery-item span {
+      position: absolute;
+      left: 20px;
+      bottom: 18px;
+      color: #fff;
+      font-weight: 700;
+      z-index: 1;
+    }
+
+    .steps {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .product-detail {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .detail-card,
+    .detail-list {
+      background: rgba(255,255,255,0.84);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 10px 24px rgba(67, 47, 31, 0.08);
+    }
+
+    .detail-card h3,
+    .detail-list h3 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-size: 1.5rem;
+    }
+
+    .detail-card p,
+    .detail-list li {
+      color: var(--muted);
+    }
+
+    .detail-list ul {
+      margin: 0;
+      padding-left: 20px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      background: #fff;
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 10px 24px rgba(67, 47, 31, 0.08);
+    }
+
+    .step strong {
+      display: inline-flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #f1dfca;
+      margin-bottom: 12px;
+      color: var(--primary-dark);
+    }
+
+    .cta {
+      padding-bottom: 100px;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #7b5d42, #a27c57);
+      color: #fff;
+      border-radius: 28px;
+      padding: 42px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 0 20px 40px;
+    }
+
+    @media (max-width: 960px) {
+      .hero-box,
+      .features,
+      .gallery,
+      .steps,
+      .product-detail,
+      .cta-box {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .cta-box {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .glass, .card, .feature, .step, .cta-box { padding: 24px; }
+      .hero { padding: 20px 14px; }
+      section { width: min(100% - 20px, 1120px); padding: 64px 0; }
+    }
+  </style>
 </head>
 <body>
-  <p>正在前往窗簾網站頁面…</p>
-  <p>如果沒有自動跳轉，請點這裡：<a href="curtains-landing.html">curtains-landing.html</a></p>
+  <header class="hero">
+    <div class="hero-box">
+      <div class="glass">
+        <div class="badge">布布好拉．格調至上</div>
+        <h1>布拉格窗簾</h1>
+        <p>
+          由窗簾規劃師郭湘琦提供專業服務，專營防焰、隔熱、遮光窗簾與羅馬簾、
+          拉門、捲簾、調光簾、各式百頁，並提供免費到府丈量估價。
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact">立即預約丈量</a>
+          <a class="btn btn-secondary" href="#products">看服務項目</a>
+          <a class="btn btn-secondary" href="installation-cases.html">安裝案例（完工實拍）</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>聯絡資訊</h3>
+        <p>布拉格窗簾由郭湘琦為你規劃合適窗飾，從丈量到款式建議一次到位。</p>
+        <ul class="mini-list">
+          <li>👤 郭湘琦｜窗簾規劃師</li>
+          <li>☎ Tel：0905-331-959</li>
+          <li>💬 LINE ID：0905331959</li>
+          <li>✔ 免費到府丈量估價</li>
+          <li>✔ 居家、商空、套房、辦公空間皆可規劃</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <section id="features">
+    <div class="section-title">
+      <h2>服務重點</h2>
+      <p>從機能需求到空間風格，布拉格窗簾協助你選到好看、好拉、也真正實用的窗簾方案。</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="icon">🔥</div>
+        <h3>防焰・隔熱・遮光</h3>
+        <p>依照空間需求挑選不同機能布料，兼顧安全、隔熱與遮光效果。</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🪟</div>
+        <h3>多元窗飾款式</h3>
+        <p>提供羅馬簾、拉門、捲簾、調光簾、各式百頁等多種選擇。</p>
+      </div>
+      <div class="feature">
+        <div class="icon">📏</div>
+        <h3>免費到府丈量估價</h3>
+        <p>由專人現場丈量與評估，讓尺寸、安裝方式與整體效果更精準。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="section-title">
+      <h2>主要服務項目</h2>
+      <p>依照名片資訊整理，這一頁目前先放入核心服務內容，也已新增 <a href="installation-cases.html" style="color: var(--primary-dark); font-weight: 700; text-decoration: underline;">安裝案例（完工實拍）</a> 頁面可查看現場照片。</p>
+    </div>
+    <div class="gallery">
+      <div class="gallery-item" style="background-image:url('images/image1.png')">
+        <span>遮光窗簾｜兼顧隱私與睡眠品質</span>
+      </div>
+      <div class="gallery-item" style="background-image:url('images/image5.png')">
+        <span>羅馬簾・捲簾・調光簾｜提升空間俐落感</span>
+      </div>
+      <div class="gallery-item" style="background-image:url('images/image3.png')">
+        <span>拉門・各式百頁｜居家與商空皆適用</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="blackout-curtains">
+    <div class="section-title">
+      <h2>🪟 遮光窗簾（Blackout Curtains）</h2>
+      <p>適合重視睡眠、隱私與隔熱效果的空間，是臥室、嬰兒房與需要白天休息環境的熱門選擇。</p>
+    </div>
+    <div class="product-detail">
+      <div class="detail-card">
+        <h3>產品介紹</h3>
+        <p>
+          遮光窗簾具備高遮光率，約可達 90%～100%，能有效阻擋陽光、車燈與外部光源干擾，
+          讓室內維持更安穩舒適的休息氛圍。
+        </p>
+        <p>
+          除了提升睡眠品質，也具備隔熱節能效果，夏天可降低室內升溫，冬天則有助於保留暖度，
+          進一步減少冷暖氣耗能。
+        </p>
+      </div>
+      <div class="detail-list">
+        <h3>⭐ 產品特色</h3>
+        <ul>
+          <li>高遮光率（約90%～100%）</li>
+          <li>有效阻擋陽光、車燈與外部光源</li>
+          <li>提升睡眠品質</li>
+          <li>適合臥室、嬰兒房、輪班族使用</li>
+          <li>隔熱節能：夏天降溫、冬天保暖，降低冷氣耗電</li>
+          <li>隔音效果加分：厚布料可減少部分外部噪音</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="roman-roller-zebra">
+    <div class="section-title">
+      <h2>🧵 羅馬簾・🧻 捲簾・🌗 調光簾</h2>
+      <p>三種不同風格與機能的窗飾選擇，適合依照空間設計、採光需求與使用習慣做搭配。</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <strong>🧵</strong>
+        <h3>羅馬簾（Roman Shade）</h3>
+        <p>布料層層摺疊，視覺更有層次感，兼具窗簾的柔和感與百葉式的俐落感。</p>
+        <p>⭐ 特色：布料層層摺疊，質感最美；像窗簾＋百葉的結合；可選遮光／半遮光。</p>
+      </div>
+      <div class="step">
+        <strong>🧻</strong>
+        <h3>捲簾（Roller Blind）</h3>
+        <p>上下拉動操作簡單，外型俐落清爽，特別適合現代居家與商業空間。</p>
+        <p>⭐ 特色：上下拉動，最簡單俐落；可做到全遮光 / 半透光。</p>
+      </div>
+      <div class="step">
+        <strong>🌗</strong>
+        <h3>調光簾（Zebra Blind / 斑馬簾）</h3>
+        <p>以透光與遮光條紋交錯排列，可靈活調節採光，不必每次都全開或全關。</p>
+        <p>⭐ 特色：條紋設計（透光＋遮光交錯）；可調整光線；現代感最強。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="section-title">
+      <h2>預約流程</h2>
+      <p>讓客戶一眼就知道怎麼聯絡、怎麼安排丈量、怎麼完成安裝。</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <strong>1</strong>
+        <h3>電話或 LINE 洽詢</h3>
+        <p>先提供需求、空間照片或想做的窗簾類型，方便快速了解方向。</p>
+      </div>
+      <div class="step">
+        <strong>2</strong>
+        <h3>免費到府丈量</h3>
+        <p>安排現場丈量尺寸，確認窗型、採光與安裝條件。</p>
+      </div>
+      <div class="step">
+        <strong>3</strong>
+        <h3>款式與報價規劃</h3>
+        <p>依據需求推薦防焰、隔熱、遮光或各式窗飾方案，提供估價建議。</p>
+      </div>
+      <div class="step">
+        <strong>4</strong>
+        <h3>施工安裝完成</h3>
+        <p>確認成品細節後安排安裝，讓整體空間更完整俐落。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="cta-box">
+      <div>
+        <h2>免費到府丈量估價</h2>
+        <p>想安裝防焰、隔熱、遮光窗簾，或規劃羅馬簾、拉門、捲簾、調光簾與各式百頁，歡迎直接聯絡郭湘琦。</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="tel:0905331959">立即來電</a>
+        <a class="btn btn-line" href="https://line.me/ti/p/~0905331959">💬 立即加入 LINE</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 布拉格窗簾｜郭湘琦 窗簾規劃師｜Tel: 0905-331-959｜LINE ID: 0905331959
+  </footer>
 </body>
 </html>

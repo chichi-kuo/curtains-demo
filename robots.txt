@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chichi-kuo.github.io/curtains-demo/sitemap.xml
